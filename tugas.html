@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Toko Buku</title>
+    <script>
+        window.onload = function() {
+            const xhr = new XMLHttpRequest();
+            xhr.open("GET", "toko_buku.json", true);
+            xhr.onreadystatechange = function() {
+              if (xhr.readyState === 4 && xhr.status === 200) {
+                const data = JSON.parse(xhr.responseText);
+                document.getElementById("nama-toko").textContent = data.toko.nama;
+                document.getElementById("alamat-toko").textContent = data.toko.alamat;
+          
+                const koleksiBuku = data.koleksi_buku;
+                const tabelBody = document.getElementById("isi-tabel");
+                for (let i = 0; i < koleksiBuku.length; i++) {
+                  const buku = koleksiBuku[i];
+                  const row = `<tr><td>${buku.judul}</td><td>${buku.pengarang}</td><td>${buku.tahun_terbit}</td></tr>`;
+                  tabelBody.innerHTML += row;
+                }
+              }
+            };
+            xhr.send();
+          };
+          
+      </script>
+  </head>
+  
+  <body>
+    <div id="info-toko">
+      <h1>Informasi Toko Buku</h1>
+      <p><strong>Nama Toko:</strong> <span id="nama-toko"></span></p>
+      <p><strong>Alamat:</strong> <span id="alamat-toko"></span></p>
+    </div>
+
+    <table border="" id="tabel-buku">
+      <thead>
+        <tr>
+          <th>Judul Buku</th>
+          <th>Pengarang</th>
+          <th>Tahun Terbit</th>
+        </tr>
+      </thead>
+      <tbody id="isi-tabel"></tbody>
+    </table>
+  </body>
+</html>

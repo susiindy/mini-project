@@ -1,0 +1,33 @@
+{
+    "toko": {
+      "nama": "Toko jeno",
+      "alamat": "Jl. Pahlawan No. 123, Kota Baru"
+    },
+    "koleksi_buku": [
+        {
+            "toko": {
+              "nama": "Buku Klasik",
+              "alamat": "Jl. Pahlawan No. 123, Kota Baru"
+            },
+            "koleksi_buku": [
+              {
+                "judul": "Harry Potter and the Sorcerer's Stone",
+                "pengarang": "J.K. Rowling",
+                "tahun_terbit": 1997
+              },
+              {
+                "judul": "The Great Gatsby",
+                "pengarang": "F. Scott Fitzgerald",
+                "tahun_terbit": 1925
+              },
+              {
+                "judul": "Matahari Terbenam",
+                "pengarang": "Harper Lee",
+                "tahun_terbit": 1960
+              }
+            ]
+          }
+          
+    ]
+  }
+  
